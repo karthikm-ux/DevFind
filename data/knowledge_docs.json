@@ -1,0 +1,254 @@
+{
+  "chunks": [
+    {
+      "doc_id": "KD-001",
+      "title": "Debugging JWT Token Refresh Issues",
+      "content": "JWT token refresh failures are commonly caused by clock skew between the authorization server and resource server. Ensure NTP is synchronized on all nodes. Verify that the refresh token has not expired and that the audience (aud) claim in the new access token matches the resource server's expected value.",
+      "source_name": "DevOps Runbook v2.1",
+      "source_url": "",
+      "chunk_index": 0,
+      "doc_type": "resolution",
+      "created_at": "2024-01-01T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-002",
+      "title": "Session Persistence and Cookie Configuration",
+      "content": "For sessions to persist across page reloads, ensure the session cookie is set with the correct SameSite attribute (Lax or None) and the Secure flag when using HTTPS. Sessions stored in memory are lost on reload; use a distributed session store such as Redis. Validate that cookie domain and path match the application's URL structure.",
+      "source_name": "Authentication Best Practices Guide",
+      "source_url": "",
+      "chunk_index": 0,
+      "doc_type": "guide",
+      "created_at": "2024-01-05T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-003",
+      "title": "Resolving Search Index Failures After Bulk Imports",
+      "content": "When bulk importing data via the API, the Elasticsearch index may not automatically refresh to include new documents. Call the _refresh API endpoint after bulk ingestion, or configure the index.refresh_interval setting to a shorter value. For large imports, use the reindex API to rebuild the index from the primary data store.",
+      "source_name": "Search Infrastructure Runbook",
+      "source_url": "",
+      "chunk_index": 0,
+      "doc_type": "resolution",
+      "created_at": "2024-01-08T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-004",
+      "title": "Database Connection Pool Tuning Guide",
+      "content": "Connection pool exhaustion occurs when the pool size is smaller than the peak concurrent request count. Configure the pool maximum size to approximately (number of vCPUs * 2) + effective_spindle_count. Enable connection validation on borrow (testOnBorrow=true) to detect stale connections. Set a connection timeout and queue timeout to return errors promptly instead of letting requests hang.",
+      "source_name": "Database Administration Handbook",
+      "source_url": "",
+      "chunk_index": 0,
+      "doc_type": "guide",
+      "created_at": "2024-01-10T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-005",
+      "title": "File Upload Validation and Size Limit Enforcement",
+      "content": "Always enforce file size limits at both the web server and application layer. Configure Nginx's client_max_body_size or Apache's LimitRequestBody directive to the maximum allowed file size. In the application, validate Content-Length before accepting the stream and reject uploads that exceed the limit with HTTP 413 Request Entity Too Large.",
+      "source_name": "API Security Standards v1.3",
+      "source_url": "",
+      "chunk_index": 0,
+      "doc_type": "documentation",
+      "created_at": "2024-01-12T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-006",
+      "title": "RBAC Permission System Design Principles",
+      "content": "Role-Based Access Control must be enforced at the API layer, not only in the UI. Every API endpoint should declare its required permission scope and validate the caller's roles server-side. Avoid client-side permission checks as the sole guard. Use middleware or attribute-based decorators to apply permission checks consistently across all routes.",
+      "source_name": "Security Architecture Guide",
+      "source_url": "",
+      "chunk_index": 0,
+      "doc_type": "documentation",
+      "created_at": "2024-01-14T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-007",
+      "title": "Pagination in Data Exports: Common Pitfalls",
+      "content": "A common bug in export features is fetching only the first page of results. The export service must iterate through all pages using cursor or offset-based pagination until no more results are returned. Use streaming writes to avoid loading the entire dataset into memory. For very large exports, consider an async job with a download link sent via email.",
+      "source_name": "Engineering Best Practices Wiki",
+      "source_url": "",
+      "chunk_index": 0,
+      "doc_type": "guide",
+      "created_at": "2024-01-16T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-008",
+      "title": "Mobile Touch Event Handling and Gesture Conflicts",
+      "content": "Gesture conflicts on mobile arise when multiple gesture recognizers are active simultaneously. Use gesture delegate methods to resolve priority: distinguish between a swipe-to-dismiss (horizontal) and a scroll (vertical) by checking the initial touch angle. Require a minimum horizontal displacement before activating the dismiss gesture to prevent accidental triggers during scroll.",
+      "source_name": "Mobile Development Standards",
+      "source_url": "",
+      "chunk_index": 0,
+      "doc_type": "documentation",
+      "created_at": "2024-01-18T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-009",
+      "title": "Email Delivery Troubleshooting and Queue Management",
+      "content": "Delayed email delivery is often caused by a backed-up message queue or SMTP connection limits. Monitor queue depth with the /metrics endpoint on the mail service. Increase worker thread count if the queue is consistently above 1000 messages. For transactional emails like password resets, use a priority queue to ensure delivery within 60 seconds regardless of bulk email load.",
+      "source_name": "DevOps Runbook v2.1",
+      "source_url": "",
+      "chunk_index": 0,
+      "doc_type": "resolution",
+      "created_at": "2024-01-20T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-010",
+      "title": "API Rate Limiting Implementation Patterns",
+      "content": "Implement API rate limiting using a token bucket or sliding window algorithm. Store rate limit state in Redis for distributed enforcement across multiple API servers. Always return X-RateLimit-Limit, X-RateLimit-Remaining, and X-RateLimit-Reset headers so clients can implement exponential backoff. Apply different rate limits by tier: free, standard, and enterprise.",
+      "source_name": "API Platform Engineering Guide",
+      "source_url": "",
+      "chunk_index": 0,
+      "doc_type": "guide",
+      "created_at": "2024-01-22T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-011",
+      "title": "Cache Invalidation Strategies for Search Autocomplete",
+      "content": "Cache invalidation must be event-driven when data changes frequently. Subscribe to project creation and deletion events and invalidate the autocomplete cache immediately on each event. Use cache tags to invalidate groups of related cache entries atomically. Set a short TTL (5 minutes) as a safety net to prevent stale data from persisting indefinitely.",
+      "source_name": "Caching Architecture Reference",
+      "source_url": "",
+      "chunk_index": 0,
+      "doc_type": "documentation",
+      "created_at": "2024-01-24T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-012",
+      "title": "Incident Report: Search Service Outage (February 2024)",
+      "content": "On February 13, 2024, a search service outage was triggered by queries containing unescaped parentheses. The query parser entered an infinite loop attempting to balance unmatched parentheses tokens. Resolution: input is now sanitized and special regex characters are escaped before query parsing. A regex timeout of 5 seconds has been added as a safeguard.",
+      "source_name": "Incident Reports Archive",
+      "source_url": "",
+      "chunk_index": 0,
+      "doc_type": "incident",
+      "created_at": "2024-02-14T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-013",
+      "title": "JWT Best Practices: Audience and Issuer Validation",
+      "content": "Always validate the iss (issuer), aud (audience), exp (expiration), and nbf (not before) claims in JWT tokens. A common misconfiguration is accepting tokens issued for a different audience, which allows token reuse across services. Use a JWT validation library rather than implementing validation manually to avoid subtle security bugs.",
+      "source_name": "Authentication Best Practices Guide",
+      "source_url": "",
+      "chunk_index": 1,
+      "doc_type": "documentation",
+      "created_at": "2024-01-05T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-014",
+      "title": "Multi-Tenant Data Isolation Patterns",
+      "content": "In multi-tenant SaaS applications, all database queries must include a tenant_id filter. The safest approach is to add a global query scope at the ORM level that automatically appends the tenant filter to every query. Audit all repository methods when adding new queries to ensure the global scope is applied and cannot be bypassed by raw SQL queries.",
+      "source_name": "Multi-Tenant Architecture Guide",
+      "source_url": "",
+      "chunk_index": 0,
+      "doc_type": "documentation",
+      "created_at": "2024-01-26T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-015",
+      "title": "Handling Database Deadlocks in High-Concurrency Applications",
+      "content": "Deadlocks occur when two transactions lock resources in conflicting order. Prevention strategies: always access rows in a consistent order across transactions; use SELECT FOR UPDATE SKIP LOCKED for queue processing; keep transactions as short as possible. Detection: configure innodb_deadlock_detect=ON and log all deadlock events. On detection, the application should retry the transaction up to 3 times with exponential backoff.",
+      "source_name": "Database Administration Handbook",
+      "source_url": "",
+      "chunk_index": 1,
+      "doc_type": "guide",
+      "created_at": "2024-01-10T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-016",
+      "title": "Webhook Delivery Reliability and Retry Policies",
+      "content": "Webhook delivery should follow HTTP redirect responses (301, 302, 307) up to a maximum of 5 hops. Mark a delivery as failed only after exhausting all retry attempts. Implement exponential backoff for retries: 1m, 5m, 30m, 2h, 24h. Log every delivery attempt with response code and body for debugging. Provide a webhook delivery log in the UI for customer self-service.",
+      "source_name": "API Platform Engineering Guide",
+      "source_url": "",
+      "chunk_index": 1,
+      "doc_type": "guide",
+      "created_at": "2024-01-22T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-017",
+      "title": "CORS Configuration for Mobile and Web Clients",
+      "content": "Cross-Origin Resource Sharing (CORS) must be configured to include all client origins. Maintain an allowlist of approved origins rather than using wildcard (*) for credentialed requests. Include the staging, production, and mobile webview domains. Update the allowlist as part of the deployment checklist whenever new client applications are added.",
+      "source_name": "API Security Standards v1.3",
+      "source_url": "",
+      "chunk_index": 1,
+      "doc_type": "documentation",
+      "created_at": "2024-01-12T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-018",
+      "title": "Mobile App Offline Sync Architecture",
+      "content": "Offline sync requires a persistent local queue (SQLite or CoreData) to store operations while the device is disconnected. The queue must survive app restarts. On reconnect, replay queued operations in order against the server API. Implement conflict resolution for cases where the same record was modified offline and on the server simultaneously. Use timestamps and version vectors for conflict detection.",
+      "source_name": "Mobile Development Standards",
+      "source_url": "",
+      "chunk_index": 1,
+      "doc_type": "documentation",
+      "created_at": "2024-01-18T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-019",
+      "title": "Incident Report: Connection Pool Exhaustion (January 2024)",
+      "content": "A connection pool exhaustion incident on January 28, 2024, caused a 45-minute partial outage. Root cause: a long-running report query held connections for over 2 minutes each, consuming all available pool connections. Resolution: added query timeout of 30 seconds, increased pool size from 20 to 50, and split report queries into smaller batches.",
+      "source_name": "Incident Reports Archive",
+      "source_url": "",
+      "chunk_index": 0,
+      "doc_type": "incident",
+      "created_at": "2024-01-29T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-020",
+      "title": "Accessibility Requirements for Web Forms and Navigation",
+      "content": "All form validation errors must be announced via ARIA live regions with aria-live='polite' or 'assertive'. Use role='alert' for critical errors. Dropdown menus must support keyboard navigation: Tab to focus the menu trigger, Enter/Space to open, Arrow keys to navigate items, Escape to close. All interactive elements must have a visible focus indicator.",
+      "source_name": "WCAG 2.1 Implementation Guide",
+      "source_url": "",
+      "chunk_index": 0,
+      "doc_type": "guide",
+      "created_at": "2024-01-28T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-021",
+      "title": "GraphQL Security: Query Depth and Complexity Limits",
+      "content": "GraphQL APIs are vulnerable to denial-of-service attacks via deeply nested or highly complex queries. Implement a query depth limit (recommended: 10 levels) and a complexity budget per query (recommended: 1000 points). Use a library such as graphql-depth-limit or graphql-query-complexity. Return a descriptive error and HTTP 400 when limits are exceeded.",
+      "source_name": "API Security Standards v1.3",
+      "source_url": "",
+      "chunk_index": 2,
+      "doc_type": "documentation",
+      "created_at": "2024-01-12T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-022",
+      "title": "Audit Logging Requirements for Permission Changes",
+      "content": "All changes to user roles, group memberships, and resource permissions must be written to the audit log immediately and synchronously before returning a success response. Each audit log entry must include: actor user ID, target user/resource ID, the specific permission change, timestamp, and the IP address of the request. Audit logs must be append-only and stored in a separate, access-controlled data store.",
+      "source_name": "Compliance and Security Handbook",
+      "source_url": "",
+      "chunk_index": 0,
+      "doc_type": "documentation",
+      "created_at": "2024-02-01T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-023",
+      "title": "Troubleshooting Android Deep Link Intent Filters",
+      "content": "Android deep links require a correctly configured intent-filter in AndroidManifest.xml with the android:autoVerify='true' attribute for App Links. The assetlinks.json file must be hosted at /.well-known/assetlinks.json on the target domain. Use adb shell am start with the deep link URI to test routing without going through a browser. Check logcat for DeepLinkDispatcher errors when links open the wrong screen.",
+      "source_name": "Mobile Development Standards",
+      "source_url": "",
+      "chunk_index": 2,
+      "doc_type": "resolution",
+      "created_at": "2024-01-18T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-024",
+      "title": "Read Replica Lag and Consistent Read Strategies",
+      "content": "Read replica lag causes stale reads when the application reads from a replica immediately after a write to the primary. Implement read-your-writes consistency by routing all reads within a transaction, or reads within 1 second of a write, directly to the primary database. Alternatively, use session-pinning to keep a user's reads on the primary for a short window after any write operation.",
+      "source_name": "Database Administration Handbook",
+      "source_url": "",
+      "chunk_index": 2,
+      "doc_type": "guide",
+      "created_at": "2024-01-10T00:00:00+00:00"
+    },
+    {
+      "doc_id": "KD-025",
+      "title": "Token Revocation on Account Deactivation and Deletion",
+      "content": "When a user account is deactivated or deleted, all active tokens (access tokens, refresh tokens, and API keys) must be revoked synchronously. For OAuth2, revoke all grants via the authorization server's revocation endpoint. For API keys, delete or invalidate all key records in the database. Add account deletion to the token revocation checklist and write an integration test to verify the behavior.",
+      "source_name": "Security Architecture Guide",
+      "source_url": "",
+      "chunk_index": 1,
+      "doc_type": "documentation",
+      "created_at": "2024-01-14T00:00:00+00:00"
+    }
+  ]
+}

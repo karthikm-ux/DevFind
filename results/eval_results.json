@@ -1,0 +1,192 @@
+[
+  {
+    "query_id": "Q001",
+    "query_text": "user gets logged out when refreshing the browser page",
+    "search_mode": "mock_demo",
+    "k": 5,
+    "precision_at_k": 0.6,
+    "recall_at_k": 1.0,
+    "reciprocal_rank": 1.0,
+    "retrieved_keys": [
+      "AUTH-101",
+      "AUTH-104",
+      "AUTH-109"
+    ],
+    "relevant_retrieved": [
+      "AUTH-101",
+      "AUTH-104",
+      "AUTH-109"
+    ],
+    "latency_ms": 0.07,
+    "category": "duplicate"
+  },
+  {
+    "query_id": "Q002",
+    "query_text": "login stops working when the auth token is refreshed",
+    "search_mode": "mock_demo",
+    "k": 5,
+    "precision_at_k": 0.4,
+    "recall_at_k": 1.0,
+    "reciprocal_rank": 1.0,
+    "retrieved_keys": [
+      "AUTH-102",
+      "AUTH-105"
+    ],
+    "relevant_retrieved": [
+      "AUTH-102",
+      "AUTH-105"
+    ],
+    "latency_ms": 0.04,
+    "category": "duplicate"
+  },
+  {
+    "query_id": "Q003",
+    "query_text": "search form throws error on blank input",
+    "search_mode": "mock_demo",
+    "k": 5,
+    "precision_at_k": 0.4,
+    "recall_at_k": 1.0,
+    "reciprocal_rank": 1.0,
+    "retrieved_keys": [
+      "SRCH-201",
+      "SRCH-205"
+    ],
+    "relevant_retrieved": [
+      "SRCH-201",
+      "SRCH-205"
+    ],
+    "latency_ms": 0.03,
+    "category": "duplicate"
+  },
+  {
+    "query_id": "Q004",
+    "query_text": "excel download from report page is missing some rows",
+    "search_mode": "mock_demo",
+    "k": 5,
+    "precision_at_k": 0.4,
+    "recall_at_k": 1.0,
+    "reciprocal_rank": 1.0,
+    "retrieved_keys": [
+      "REP-501",
+      "REP-505"
+    ],
+    "relevant_retrieved": [
+      "REP-501",
+      "REP-505"
+    ],
+    "latency_ms": 0.03,
+    "category": "duplicate"
+  },
+  {
+    "query_id": "Q005",
+    "query_text": "mobile hamburger menu stays open after tapping a nav link",
+    "search_mode": "mock_demo",
+    "k": 5,
+    "precision_at_k": 0.6,
+    "recall_at_k": 1.0,
+    "reciprocal_rank": 1.0,
+    "retrieved_keys": [
+      "UI-601",
+      "MOB-805",
+      "MOB-809"
+    ],
+    "relevant_retrieved": [
+      "UI-601",
+      "MOB-805",
+      "MOB-809"
+    ],
+    "latency_ms": 0.07,
+    "category": "duplicate"
+  },
+  {
+    "query_id": "Q006",
+    "query_text": "read-only API key can still create new records",
+    "search_mode": "mock_demo",
+    "k": 5,
+    "precision_at_k": 0.2,
+    "recall_at_k": 1.0,
+    "reciprocal_rank": 1.0,
+    "retrieved_keys": [
+      "AUTHZ-408"
+    ],
+    "relevant_retrieved": [
+      "AUTHZ-408"
+    ],
+    "latency_ms": 0.03,
+    "category": "duplicate"
+  },
+  {
+    "query_id": "Q007",
+    "query_text": "viewer role user is able to change project configuration",
+    "search_mode": "mock_demo",
+    "k": 5,
+    "precision_at_k": 0.0,
+    "recall_at_k": 0.0,
+    "reciprocal_rank": 0.0,
+    "retrieved_keys": [
+      "AUTH-101",
+      "AUTH-104",
+      "AUTH-109"
+    ],
+    "relevant_retrieved": [],
+    "latency_ms": 0.02,
+    "category": "duplicate"
+  },
+  {
+    "query_id": "Q008",
+    "query_text": "database runs out of connections during busy periods",
+    "search_mode": "mock_demo",
+    "k": 5,
+    "precision_at_k": 0.2,
+    "recall_at_k": 1.0,
+    "reciprocal_rank": 1.0,
+    "retrieved_keys": [
+      "DB-601"
+    ],
+    "relevant_retrieved": [
+      "DB-601"
+    ],
+    "latency_ms": 0.05,
+    "category": "duplicate"
+  },
+  {
+    "query_id": "Q009",
+    "query_text": "exported CSV file only contains the first page of results",
+    "search_mode": "mock_demo",
+    "k": 5,
+    "precision_at_k": 0.4,
+    "recall_at_k": 1.0,
+    "reciprocal_rank": 1.0,
+    "retrieved_keys": [
+      "REP-501",
+      "REP-505"
+    ],
+    "relevant_retrieved": [
+      "REP-501",
+      "REP-505"
+    ],
+    "latency_ms": 0.06,
+    "category": "duplicate"
+  },
+  {
+    "query_id": "Q010",
+    "query_text": "application session terminates unexpectedly when navigating",
+    "search_mode": "mock_demo",
+    "k": 5,
+    "precision_at_k": 0.6,
+    "recall_at_k": 1.0,
+    "reciprocal_rank": 1.0,
+    "retrieved_keys": [
+      "AUTH-101",
+      "AUTH-104",
+      "AUTH-109"
+    ],
+    "relevant_retrieved": [
+      "AUTH-101",
+      "AUTH-104",
+      "AUTH-109"
+    ],
+    "latency_ms": 0.08,
+    "category": "duplicate"
+  }
+]

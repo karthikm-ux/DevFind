@@ -1,0 +1,17 @@
+{
+  "methodology": "Evaluation on synthetic dataset. Labels are human-assigned. Results indicate relative search mode performance. This dataset is too small to establish production accuracy.",
+  "aggregated": [
+    {
+      "search_mode": "mock_demo",
+      "k": 5,
+      "mean_precision_at_k": 0.38,
+      "mean_recall_at_k": 0.9,
+      "mean_reciprocal_rank": 0.9,
+      "mean_latency_ms": 0.05,
+      "total_queries": 10,
+      "true_positives": 19,
+      "false_positives": 3,
+      "false_negatives": 2
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "description": "Synthetic evaluation dataset for DevFind. All data is synthetic and labeled by the dataset authors. Not representative of production performance.",
+  "queries": [
+    {
+      "query_id": "Q001",
+      "query_text": "user gets logged out when refreshing the browser page",
+      "relevant_issue_keys": ["AUTH-101", "AUTH-104", "AUTH-109"],
+      "category": "duplicate",
+      "description": "AUTH-101 (Session expires on page reload), AUTH-104 (Application logs out after browser refresh), and AUTH-109 (User session lost when navigating back) all describe the same session invalidation on page interaction bug."
+    },
+    {
+      "query_id": "Q002",
+      "query_text": "login stops working when the auth token is refreshed",
+      "relevant_issue_keys": ["AUTH-102", "AUTH-105"],
+      "category": "duplicate",
+      "description": "AUTH-102 (Login fails after token refresh) and AUTH-105 (Authentication breaks when renewing access token) are semantic duplicates describing the same token renewal failure."
+    },
+    {
+      "query_id": "Q003",
+      "query_text": "search form throws error on blank input",
+      "relevant_issue_keys": ["SRCH-201", "SRCH-205"],
+      "category": "duplicate",
+      "description": "SRCH-201 (Search page crashes on empty query) and SRCH-205 (Null pointer exception when search form submitted without input) both describe a server crash when no search term is provided."
+    },
+    {
+      "query_id": "Q004",
+      "query_text": "excel download from report page is missing some rows",
+      "relevant_issue_keys": ["REP-501", "REP-505"],
+      "category": "duplicate",
+      "description": "REP-501 (CSV export omits records) and REP-505 (Downloaded spreadsheet missing rows from paginated results) both describe incomplete exports caused by the pagination bug."
+    },
+    {
+      "query_id": "Q005",
+      "query_text": "mobile hamburger menu stays open after tapping a nav link",
+      "relevant_issue_keys": ["UI-601", "MOB-805", "MOB-809"],
+      "category": "duplicate",
+      "description": "UI-601, MOB-805, and MOB-809 all describe the same bug where the mobile navigation menu/drawer fails to close after selecting a menu item."
+    },
+    {
+      "query_id": "Q006",
+      "query_text": "read-only API key can still create new records",
+      "relevant_issue_keys": ["AUTHZ-408"],
+      "category": "duplicate",
+      "description": "AUTHZ-408 (API key with read-only scope can write data) directly matches this query about scoped API keys not enforcing write restrictions."
+    },
+    {
+      "query_id": "Q007",
+      "query_text": "viewer role user is able to change project configuration",
+      "relevant_issue_keys": ["AUTHZ-401", "AUTHZ-404"],
+      "category": "duplicate",
+      "description": "AUTHZ-401 (Permission check allows viewer to edit settings) and AUTHZ-404 (Viewer role user can modify project settings via API) are duplicates describing the same RBAC bypass."
+    },
+    {
+      "query_id": "Q008",
+      "query_text": "database runs out of connections during busy periods",
+      "relevant_issue_keys": ["DB-601"],
+      "category": "duplicate",
+      "description": "DB-601 (Database connection pool exhausted under peak load) directly describes the connection exhaustion problem during high traffic."
+    },
+    {
+      "query_id": "Q009",
+      "query_text": "exported CSV file only contains the first page of results",
+      "relevant_issue_keys": ["REP-501", "REP-505"],
+      "category": "duplicate",
+      "description": "Both REP-501 and REP-505 specifically describe that only the first page of paginated results is included in exports."
+    },
+    {
+      "query_id": "Q010",
+      "query_text": "application session terminates unexpectedly when navigating",
+      "relevant_issue_keys": ["AUTH-101", "AUTH-104", "AUTH-109"],
+      "category": "duplicate",
+      "description": "AUTH-101, AUTH-104, and AUTH-109 all capture variants of unexpected session termination during page navigation or refresh."
+    },
+    {
+      "query_id": "Q011",
+      "query_text": "search is slow on large projects with many issues",
+      "relevant_issue_keys": ["SRCH-202", "SRCH-206"],
+      "category": "related",
+      "description": "SRCH-202 (Search results load slowly for large projects) is directly related. SRCH-206 (Search index not updated after bulk import) is related as both involve indexing and performance on large datasets."
+    },
+    {
+      "query_id": "Q012",
+      "query_text": "user account locked after one wrong password",
+      "relevant_issue_keys": ["AUTH-110"],
+      "category": "related",
+      "description": "AUTH-110 (Account locked out after single failed login attempt) directly describes lockout policy being too aggressive."
+    },
+    {
+      "query_id": "Q013",
+      "query_text": "permissions do not update for currently logged-in users",
+      "relevant_issue_keys": ["AUTHZ-407", "AUTHZ-402"],
+      "category": "related",
+      "description": "AUTHZ-407 (Group membership changes do not take effect until next login) is a direct match. AUTHZ-402 (Deleted user retains API access) is related as both involve stale authorization state."
+    },
+    {
+      "query_id": "Q014",
+      "query_text": "report generation causes memory error for long time ranges",
+      "relevant_issue_keys": ["REP-502"],
+      "category": "related",
+      "description": "REP-502 (Report generation fails with memory error for large date ranges) is a direct match for this query."
+    },
+    {
+      "query_id": "Q015",
+      "query_text": "mobile app does not sync offline changes after reconnecting",
+      "relevant_issue_keys": ["MOB-803"],
+      "category": "related",
+      "description": "MOB-803 (Offline mode does not sync changes when connection is restored) is a precise match for this sync-on-reconnect issue."
+    },
+    {
+      "query_id": "Q016",
+      "query_text": "keyboard navigation is broken in the header menu",
+      "relevant_issue_keys": ["UI-304", "UI-307"],
+      "category": "related",
+      "description": "UI-304 (Dropdown menu items not accessible via keyboard navigation) is the primary match. UI-307 (Form validation errors not announced to screen readers) is related as both are accessibility issues."
+    },
+    {
+      "query_id": "Q017",
+      "query_text": "cross-tenant data leakage in multi-tenant environment",
+      "relevant_issue_keys": ["AUTHZ-409"],
+      "category": "related",
+      "description": "AUTHZ-409 (Cross-tenant data access possible due to missing tenancy filter) is the direct match for data isolation concerns in multi-tenant deployments."
+    },
+    {
+      "query_id": "Q018",
+      "query_text": "push notifications not working on the latest iPhone",
+      "relevant_issue_keys": ["MOB-801"],
+      "category": "related",
+      "description": "MOB-801 (Push notifications not received on iOS 17 devices) directly corresponds to notification failures on the newest iPhone models running iOS 17."
+    },
+    {
+      "query_id": "Q019",
+      "query_text": "what causes a 403 error when accessing user settings",
+      "relevant_issue_keys": ["AUTHZ-401", "AUTHZ-404", "AUTHZ-410"],
+      "category": "unrelated",
+      "description": "AUTHZ-401 and AUTHZ-404 address editing settings, and AUTHZ-410 addresses a 403 on profile pages. The query is slightly ambiguous between permission issues on settings vs profile."
+    },
+    {
+      "query_id": "Q020",
+      "query_text": "application performance is degraded",
+      "relevant_issue_keys": [],
+      "category": "unrelated",
+      "description": "The query is too broad and vague. Many issues could be tangentially related (DB-601, SRCH-202, MOB-807), but none are a specific match for a clearly defined problem."
+    },
+    {
+      "query_id": "Q021",
+      "query_text": "need help setting up a new project",
+      "relevant_issue_keys": [],
+      "category": "unrelated",
+      "description": "This is a help request unrelated to any bug in the issue database. No issues describe project setup problems."
+    },
+    {
+      "query_id": "Q022",
+      "query_text": "dark mode is not working",
+      "relevant_issue_keys": ["UI-301"],
+      "category": "unrelated",
+      "description": "UI-301 (Dark mode toggle reverts to light mode after navigation) is the closest match, but the query is too vague to confirm a specific bug match without more context."
+    },
+    {
+      "query_id": "Q023",
+      "query_text": "search might be broken or maybe it is just slow",
+      "relevant_issue_keys": ["SRCH-201", "SRCH-202", "SRCH-205", "SRCH-209"],
+      "category": "ambiguous",
+      "description": "The query ambiguously describes either a crash or a performance issue. Multiple search bugs are candidates: empty query crash (SRCH-201/205), slow queries (SRCH-202), and timeout on special characters (SRCH-209)."
+    },
+    {
+      "query_id": "Q024",
+      "query_text": "login is not working properly for some users",
+      "relevant_issue_keys": ["AUTH-101", "AUTH-102", "AUTH-104", "AUTH-105", "AUTH-106", "AUTH-110"],
+      "category": "ambiguous",
+      "description": "The ambiguous description of 'login not working' could match session issues (AUTH-101/104), token refresh failures (AUTH-102/105), MFA failures (AUTH-106), or lockout (AUTH-110)."
+    },
+    {
+      "query_id": "Q025",
+      "query_text": "something goes wrong when I export data",
+      "relevant_issue_keys": ["REP-501", "REP-502", "REP-503", "REP-505"],
+      "category": "ambiguous",
+      "description": "This broad export complaint could refer to missing rows (REP-501/505), memory errors (REP-502), or empty email attachments (REP-503)."
+    },
+    {
+      "query_id": "Q026",
+      "query_text": "mobile menu behaves strangely after an update",
+      "relevant_issue_keys": ["UI-601", "MOB-805", "MOB-809"],
+      "category": "ambiguous",
+      "description": "The vague 'strange behavior' and 'mobile menu' could refer to the menu not closing (UI-601, MOB-805, MOB-809) or potentially other mobile UI regressions."
+    },
+    {
+      "query_id": "Q027",
+      "query_text": "Error 403 when accessing settings page",
+      "relevant_issue_keys": ["AUTHZ-401", "AUTHZ-404"],
+      "category": "exact_error_code",
+      "description": "AUTHZ-401 and AUTHZ-404 both describe Viewer-role users being able to access project settings, and the corresponding 403 behavior when it is properly enforced."
+    },
+    {
+      "query_id": "Q028",
+      "query_text": "HTTP 401 Unauthorized after refreshing the access token",
+      "relevant_issue_keys": ["AUTH-102", "AUTH-105"],
+      "category": "exact_error_code",
+      "description": "AUTH-102 and AUTH-105 both describe receiving 401 Unauthorized responses after the token refresh grant completes."
+    },
+    {
+      "query_id": "Q029",
+      "query_text": "500 Internal Server Error when submitting empty search",
+      "relevant_issue_keys": ["SRCH-201", "SRCH-205"],
+      "category": "exact_error_code",
+      "description": "SRCH-201 and SRCH-205 both describe a 500 error returned when the search form is submitted without any input."
+    },
+    {
+      "query_id": "Q030",
+      "query_text": "NullPointerException in search controller on empty input",
+      "relevant_issue_keys": ["SRCH-201", "SRCH-205"],
+      "category": "exact_error_code",
+      "description": "SRCH-205 explicitly mentions java.lang.NullPointerException at SearchController.java:47, and SRCH-201 describes the same root cause on empty query submission."
+    }
+  ]
+}

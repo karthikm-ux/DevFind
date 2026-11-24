@@ -1,0 +1,11 @@
+query_id,query_text,search_mode,k,precision_at_k,recall_at_k,reciprocal_rank,retrieved_keys,relevant_retrieved,latency_ms,category
+Q001,user gets logged out when refreshing the browser page,mock_demo,5,0.6,1.0,1.0,AUTH-101|AUTH-104|AUTH-109,AUTH-101|AUTH-104|AUTH-109,0.07,duplicate
+Q002,login stops working when the auth token is refreshed,mock_demo,5,0.4,1.0,1.0,AUTH-102|AUTH-105,AUTH-102|AUTH-105,0.04,duplicate
+Q003,search form throws error on blank input,mock_demo,5,0.4,1.0,1.0,SRCH-201|SRCH-205,SRCH-201|SRCH-205,0.03,duplicate
+Q004,excel download from report page is missing some rows,mock_demo,5,0.4,1.0,1.0,REP-501|REP-505,REP-501|REP-505,0.03,duplicate
+Q005,mobile hamburger menu stays open after tapping a nav link,mock_demo,5,0.6,1.0,1.0,UI-601|MOB-805|MOB-809,UI-601|MOB-805|MOB-809,0.07,duplicate
+Q006,read-only API key can still create new records,mock_demo,5,0.2,1.0,1.0,AUTHZ-408,AUTHZ-408,0.03,duplicate
+Q007,viewer role user is able to change project configuration,mock_demo,5,0.0,0.0,0.0,AUTH-101|AUTH-104|AUTH-109,,0.02,duplicate
+Q008,database runs out of connections during busy periods,mock_demo,5,0.2,1.0,1.0,DB-601,DB-601,0.05,duplicate
+Q009,exported CSV file only contains the first page of results,mock_demo,5,0.4,1.0,1.0,REP-501|REP-505,REP-501|REP-505,0.06,duplicate
+Q010,application session terminates unexpectedly when navigating,mock_demo,5,0.6,1.0,1.0,AUTH-101|AUTH-104|AUTH-109,AUTH-101|AUTH-104|AUTH-109,0.08,duplicate

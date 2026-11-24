@@ -1,0 +1,17 @@
+DEVFIND SETUP GUIDE
+
+1. Create a Weaviate Cloud cluster: https://docs.weaviate.io/weaviate/quickstart
+2. Copy the REST endpoint and create an API key. Keep the key private.
+3. Make sure the Weaviate Embeddings automatic vectorizer integration used by
+   Configure.Vectors.text2vec_weaviate() is available/configured for your cluster.
+4. In Windows CMD, inside your project folder, run:
+   python -m pip install -U weaviate-client
+   set "WEAVIATE_URL=https://YOUR-CLUSTER-REST-ENDPOINT"
+   set "WEAVIATE_API_KEY=YOUR-PRIVATE-API-KEY"
+   python devfind_demo.py
+5. The script resets the DevFindIssue demo collection on each run. Use only for this
+   sample project, not real data.
+
+Never share the API key in chat, screenshots, slides, or source control.
+If automatic vectorization fails, check the current Weaviate Cloud quickstart and
+the vectorizer integration available for your cluster.
