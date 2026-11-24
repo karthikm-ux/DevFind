@@ -365,6 +365,6 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 ## 21. Author & Acknowledgments
 
-- **Author:** [aadiur](https://github.com/aadiur)
-- **Contact:** `aadiur710@gmail.com`
+- **Author:** [Karthik m]
+- **Contact:** `umamadhukarthikm@gmail.com`
 - **Acknowledgments:** Developed as a practical demonstration of vector-native software engineering and information retrieval powered by Weaviate.
